@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minmum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>良品菜市</title>
+    <link rel="stylesheet" href="css/static/bootstrap.min.css">
+    <link rel="stylesheet" href="css/static/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="lib/layui/css/modules/layer/default/layer.css">
+    <link rel="stylesheet" href="css/index/index.css">
+</head>
+<body>
+<div class="row workWrap">
+    <nav class="navbar navbar-fixed-top">
+        <div class="container title">
+            <span class="index">良品菜市</span>
+        </div>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div id="today_recommend" class="swiper-slide swiper_active">今日推荐</div>
+            </div>
+        </div>
+        <div class="h35"></div>
+    </nav>
+
+    <div class="col-xs-3 col-sm-3 left_slide">
+        <ul></ul>
+    </div>
+    <div class="col-xs-9 col-sm-9 right_content">
+        <div class="detail_describe"></div>
+        <div id="detail_wrap" class="detail_wrap"></div>
+        
+    </div>
+
+    <section id="navbar" class="navbar navbar-fixed-bottom">
+        <div id="wrap" class="wrap display"></div>
+        <div id="gec_detail" class="container gec_detail">
+            <div class="gwcDetail_top">
+                <div class="top_left">
+                    <i></i>
+                    <span>购物车</span>
+                </div>
+                <div class="top_right">
+                    <i></i>
+                    <span>清空</span>
+                </div>
+            </div>
+            <div id="abc" class="gwcDetail_content">
+                <ul></ul>
+            </div>
+            <p class="psf">*配送费会根据您所在位置智能计算</p>
+        </div>
+        <div class="container gwc_bottom">
+            <div id="gwc" class="gwc">
+                <div id="target" class="gwc_img">
+                    <i></i>
+                    <div class="icon">0</div>
+                </div>
+                <span><em>￥</em><b>购物车是空的</b></span>
+            </div>
+            <div class="gwc_submit">
+                <a href="javascript:;">还差￥<i>30</i>元起送</a>
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="lib/jquery/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="lib/layui/lay/modules/layer.js"></script>
+<script type="text/javascript" src="lib/jquery/jquery.fly.min.js"></script>
+<script type="text/javascript" src="lib/jquery/swiper-3.4.2.min.js"></script>
+<!--<script src="js/scrollfix.js"></script>-->
+<!--<script type="text/javascript" src="js/static/common.js" ></script>-->
+<script src="js/index/index.js"></script>

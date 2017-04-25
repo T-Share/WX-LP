@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minmum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<title></title>
+		<link rel="stylesheet" href="../../css/static/bootstrap.min.css">
+		<link rel="stylesheet" href="../../lib/layui/css/modules/layer/default/layer.css">
+		<link rel="stylesheet" href="../../css/index/index.css">
+	</head>
+
+	<body>
+
+		<nav class="navbar navbar-fixed-top">
+			<div class="container title">
+				<i class="go_back"></i>
+				<span class="order_span">添加收货地址</span>
+				<i class="right_i"></i>
+			</div>
+		</nav>
+		<div class="container">
+			<div class="contact_nameWrap">
+				<span>联系人</span>
+			</div>
+			<div class="contact_name">
+				<span>姓名</span>
+				<input class="enter_name" title="" type="text" placeholder="请输入姓名">
+				<label>
+            <em class="em_choose fl"></em>
+            <input id="man" class="sex fl" title="" type="radio" name="sex" checked value="1">先生
+        </label>
+				<label>
+            <em class="fl"></em>
+            <input id="women" class="sex fl" title="" type="radio" name="sex" value="2">女士
+        </label>
+			</div>
+			<div class="contact_name">
+				<span class="tel_span">手机</span>
+				<input class="contact_tel" title="" type="number" placeholder="请输入您的手机号码，方便配送员联系您">
+			</div>
+			<div class="contact_nameWrap">
+				<span>送餐地址</span>
+			</div>
+			<div class="contact_address">
+				<span class="area_span">小区/大厦/学校</span>
+				<div>
+					<i></i>
+					<a class="area txmap Jtxmap">小区/写字楼/学校等</a>
+					<em></em>
+				</div>
+			</div>
+			<div class="contact_address detail_address">
+				<span class="">详细地址</span>
+				<textarea class="address_input Jaddress" placeholder="请输入您的详细地址"></textarea>
+			</div>
+			<div class="contact_address detail_address">
+				<span class="">门牌号</span>
+				<input title="" class="room_input" type="text" placeholder="例如：8号楼402室">
+			</div>
+			<div class="add_button">
+				<a href="javascript:;">保存</a>
+			</div>
+		</div>
+	</body>
+
+</html>
+<script src="../../lib/jquery/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="../../lib/layui/lay/modules/layer.js"></script>
+<!--<script type="text/javascript" src="../../js/static/common.js" ></script>-->
+<script src="../../js/address/add_address.js"></script>

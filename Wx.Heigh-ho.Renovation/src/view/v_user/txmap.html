@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minmum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<title></title>
+		<link rel="stylesheet" href="../../css/map/map.css">
+	</head>
+
+	<body>
+		<iframe id="mapPage" frameborder=0 src="http://apis.map.qq.com/tools/locpicker?search=1&type=1&key=VAKBZ-2JB3P-VPODW-LM4N3-2RMOF-R3BFH&referer=fresh"></iframe>
+		<div id="ReminderBox" class="display" style="position:fixed;width:100%;height:100%;top:0px;left:0px;z-index: 999;background: rgba(0,0,0,0.6);">
+			<div class="remindebox ">
+				<div class="remindemodel">
+					<div class="remindemodel_header">
+						<h1>超出商家配送范围</h1>
+					</div>
+					<div class="remindemodel_content">
+						<div class="remindemodel_info">
+							<div class="info_header">
+								<span>商家将无法配送到此地址，是否仍然保存？</span>
+							</div>
+						</div>
+						<div class="remindemodel_footer">
+							<a class="remindemodel_btn Jsave" href="javaScript:void(0);">仍然保存</a>
+							<a class="remindemodel_btn Jcancel" style="border-left: 1px solid #D5D5D5;" href="javaScript:void(0);">取消</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="../../lib/jquery/jquery-1.11.3.min.js"></script>
+	<script src="../../js/map/txmap.js"></script>
+
+</html>

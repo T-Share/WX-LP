@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minmum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<title></title>
+		<link rel="stylesheet" href="../../css/static/bootstrap.min.css">
+		<link rel="stylesheet" href="../../lib/layui/css/modules/layer/default/layer.css">
+		<link rel="stylesheet" href="../../css/index/index.css">
+	</head>
+
+	<body>
+
+		<nav class="navbar navbar-fixed-top">
+			<div class="container title">
+				<i class="go_back"></i>
+				<span class="order_span">订单详情</span>
+				<i class="detail_phone"></i>
+			</div>
+		</nav>
+		<div class="container orderDetail">
+			<div class="order_status">
+				<div class="status_top">
+					<i></i>
+					<b></b>
+					<span></span>
+				</div>
+			</div>
+			<div class="order_step">
+				<div class="step_content">
+					<span class="content1 active">已支付</span>
+					<span class="content2">已接单</span>
+					<span class="content3">已送达</span>
+				</div>
+			</div>
+			<div class="order_detail">
+				<div class="contact_nameWrap">
+					<span>订单详情</span>
+				</div>
+				<div class="shop_content">
+					<ul></ul>
+				</div>
+				<div class="fee">
+					<span class="v_name fee_span">配送费</span>
+					<span class="v_num"></span>
+					<span id="psf" class="v_price">￥<i></i></span>
+				</div>
+				<div class="total">
+					<span class="v_name">总计</span>
+					<span class="v_num"></span>
+					<span id="total" class="v_price fee_span">￥<i></i></span>
+				</div>
+			</div>
+			<div class="order_info">
+				<div class="contact_nameWrap">
+					<span>订单信息</span>
+				</div>
+				<div class="order_info_list">
+					<ul>
+						<li class="order_num">
+							<span class="list_left">订单编号</span>
+							<span class="list_right"></span>
+						</li>
+						<li class="order_time">
+							<span class="list_left">订单时间</span>
+							<span class="list_right"></span>
+						</li>
+						<li class="goods_num">
+							<span class="list_left">商品数量</span>
+							<span class="list_right"></span>
+						</li>
+						<li class="send_address">
+							<span class="list_left">配送地址</span>
+							<span class="list_right"></span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="order_remark">
+				<div class="contact_nameWrap">
+					<span>订单备注</span>
+				</div>
+				<p id="remark"></p>
+			</div>
+		</div>
+		<nav id="order_detailWrap" class="navbar navbar-fixed-bottom">
+			<div id="order_detail" class="container">
+				<div class="cancel_order">取消订单</div>
+				<div class="detail_pay">去支付</div>
+			</div>
+			<div id="order_again" class="container">
+				<div>再来一单</div>
+			</div>
+		</nav>
+	</body>
+
+</html>
+<script src="../../lib/jquery/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="../../lib/layui/lay/modules/layer.js"></script>
+<!--<script type="text/javascript" src="../../js/static/common.js" ></script>-->
+<script src="../../js/order/orderDetail.js"></script>

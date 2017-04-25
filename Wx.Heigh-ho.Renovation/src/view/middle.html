@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minmum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<title></title>
+		<link rel="stylesheet" href="../css/static/bootstrap.min.css">
+		<link rel="stylesheet" href="../lib/layui/css/modules/layer/default/layer.css">
+	</head>
+
+	<body>
+
+	</body>
+
+</html>
+<script src="../lib/jquery/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="../lib/layui/lay/modules/layer.js"></script>
+<script type="text/javascript" src="../js/static/common.js"></script>
+<script>
+	var BASEURL = 'http://www.heeyhome.com/lpcs/home/';
+	var OPENIDURL = BASEURL + 'index/index'; // openid
+	var openid = ''; //o-X7mw822W0t7e9u7gqwkrxsb3-I
+
+	/*定义一个类*/
+	var middleWarp = {
+		/* 全局变量 */
+		ISSELLERURL: BASEURL + 'Seller/isSeller', // 查询是否为商户微信登录
+		/**
+		 * 入口方法
+		 */
+		init: function() {
+			// 页面事件
+			middleWarp.initEvent();
+
+		},
+		/**
+		 * 所有事件的绑定根据功能模块统一写在同一个方法里，根据业务调用
+		 */
+		initEvent: function() {
+			var self = this;
+			// 查询是否为商户微信登录
+			$.ajax({
+				url: middleWarp.ISSELLERURL,
+				type: "GET",
+				async: true,
+				data: {
+					openid: openid,
+				},
+				dataType: 'jsonp',
+				success: function(data) {
+					console.log(data);
+					if(data.code == '000' && data.msg == 'true') { // 商家
+						window.location.href = 'v_business/merOrderList.html';
+					} else if(data.code == '200' && data.msg == 'false') { // 用户
+						window.location.href = 'v_user/orderList.html';
+					}
+				}
+			});
+		},
+	};
+
+	//入口方法调用 代码只能从这里执行
+	$(function() {
+
+		function getUrlParam(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+			var r = window.location.search.substr(1).match(reg); //匹配目标参数
+			if(r != null) return unescape(r[2]);
+			return null; //返回参数值
+		}
+
+		var code = getUrlParam('code');
+
+		$.ajax({
+			url: OPENIDURL,
+			type: "GET",
+			async: true,
+			data: {
+				code: code
+			},
+			dataType: 'jsonp',
+			success: function(data) {
+				if(data.code == '000') {
+					openid = data.data.openid;
+					middleWarp.init();
+				} else {
+					layer.msg(data.msg);
+				}
+			},
+			error: function(data) {}
+		});
+	});
+</script>

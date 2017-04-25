@@ -1,0 +1,87 @@
+body{
+    -webkit-overflow-scrolling: touch;
+    -webkit-box-flex: 1;
+    overflow: auto;
+}
+.bj {
+	background: rgba(0, 0, 0, 0.5);
+	display: block;
+	height: 100vh;
+}
+
+.time_top {
+	background-color: #f4f4f4;
+    /* height: 30px; */
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: block;
+    text-align: center;
+        /*padding: 1rem;*/
+}
+
+.scroll-holder {
+position: relative;
+	max-height: 250px;
+	height: 250px;
+	padding: 0;
+	width: 100%;
+	overflow: auto;
+	background-color: #fff;
+}
+
+.right_content {
+    position: absolute;
+    padding-bottom: 1rem;
+    margin-left: 25%;
+        -webkit-overflow-scrolling: touch;
+    -webkit-box-flex: 1;
+        overflow: auto;
+}
+
+.right_content ul {
+        -webkit-overflow-scrolling: touch;
+    -webkit-box-flex: 1;
+        overflow: auto;
+}
+
+.right_content ul li {
+    /* height: 13.5rem; */
+    border-bottom: 1px solid #ebebeb;
+    padding: 1.5rem 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.right_content ul li p {
+    width: 90%;
+}
+
+.right_content ul li i {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.right_content ul li i.click {
+        background: #eec988;
+}
+
+.display{
+display: none;
+}
+
+.left_slide ul li {
+	cursor: pointer;
+}
