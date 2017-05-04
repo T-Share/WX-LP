@@ -33,10 +33,10 @@ var addressWarp = {
 		$(document).on('click', '.address_detail input', function() {
 				self.switchAddressManageEvent($(this)); // 地址点击切换
 			})
-			.on('click', '.manage_address', function() {
+			.on('touchstart', '.manage_address', function() {
 				self.editAddressEvent($(this)); // 编辑地址
 			})
-			.on('click', '#add_address', function() {
+			.on('touchstart', '#add_address', function() {
 				self.addAddressEvent($(this)); // 新增地址
 			});
 	},

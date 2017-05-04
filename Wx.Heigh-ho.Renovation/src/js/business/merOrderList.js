@@ -7,6 +7,7 @@ var mOrderListWarp = {
 	/* 全局变量 */
 	ORDERLISTURL: BASEURL + 'seller/orderlist', // 商家订单列表
 	SUREORDERURL: BASEURL + 'seller/order_confirm', // 商家确认接单
+	DADATEMPORARYURL: BASEURL + 'Dada/dadaTemporary', // 商家发布配送
 	/**
 	 * 入口方法
 	 */
@@ -99,7 +100,7 @@ var mOrderListWarp = {
 							stitching += '<div order_id="' + data.data[i].order_id + '" class="orderList">';
 							stitching += '<div class="orderListWrap">';
 							stitching += '<div class="orderList_left" style="cursor: pointer">';
-							stitching += '<h5><span class="name">' + data.data[i].name + '&nbsp;&nbsp;</span><span class="phone">' + data.data[i].phone + '</span></h5>';
+							stitching += '<h5><span class="name">' + data.data[i].name + '&nbsp;&nbsp;</span><span class="phone"><a  href="tel:'+data.data[i].phone+'">'+data.data[i].phone +'</a></span></h5>';
 							stitching += '<p>下单时间：<span>' + data.data[i].order_time + '</span></p>';
 							stitching += '<p>购买数量：<span>' + data.data[i].goods_num + '</span></p>';
 							stitching += '<p>消费金额：<span>' + data.data[i].total_amount + '</span></p>';
@@ -109,7 +110,7 @@ var mOrderListWarp = {
 							if(data.data[i].order_step == '1') { //待接单
 								stitching += '<a class="order" data-orderStep = "1" href="javascript:;">确认接单</a>';
 							} else if(data.data[i].order_step == '2') { //待配送
-								stitching += '<a class="order" data-orderStep = "2" href="javascript:;">发布配送</a>';
+								stitching += '<a class="order Jpeisong" data-orderStep = "2" href="javascript:;">发布配送</a>';
 							}
 							stitching += '</div>';
 							stitching += '</div>';
@@ -171,15 +172,32 @@ var mOrderListWarp = {
 				error: function(data) {}
 			});
 		} else if(_this.data('orderstep') == "2") {
-			console.log("请等到商家配送")
+			$.ajax({
+				url: mOrderListWarp.DADATEMPORARYURL,
+				type: "GET",
+				async: true,
+				data: {
+					order_id: mOrderid
+				},
+				dataType: 'jsonp',
+				success: function(data) {
+					if(data.code == '000') {
+						location.reload();
+					} else {
+						layer.msg(data.msg);
+					}
+				},
+				error: function(data) {}
+			});
 		}
 
 	},
+	
 };
 
 //入口方法调用 代码只能从这里执行
 $(function() {
-
+//mOrderListWarp.init();
 	function getUrlParam(name) {
 		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
 		var r = window.location.search.substr(1).match(reg); //匹配目标参数

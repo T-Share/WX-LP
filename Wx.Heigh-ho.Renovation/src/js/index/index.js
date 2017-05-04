@@ -41,12 +41,12 @@ var indexWarp = {
 		$(document).on('click', '.other_cate', function() {
 				var cate_id = $(this).attr('cate_id');
 				$(this).addClass("swiper_active").siblings().removeClass("swiper_active");
-				self.getGoodsListEvent(cate_id);
+				self.getGoodsListEvent(cate_id, 0);
 			})
 			.on('click', '.left_slide li', function(e) {
 				self.initFloorNavEvent(e, $(this));
 			})
-			.on('click', '#today_recommend', function(e) {
+			.on('click', '#today_recommend', function(e) { //点击今日推荐
 				var divTop = $('.content_li').eq(0).offset().top
 				$(this).addClass("swiper_active").siblings().removeClass("swiper_active");
 				$("html,body").stop().animate({
@@ -168,8 +168,9 @@ var indexWarp = {
 	},
 	/**
 	 * 根据ID获取商品列表
+	 * @param flag 0:表示要移动到顶部 1 表示维持不动
 	 */
-	getGoodsListEvent: function(cateId) {
+	getGoodsListEvent: function(cateId, flag) {
 		$.ajax({
 			url: indexWarp.GOODLISTURL,
 			type: "GET",
@@ -186,9 +187,12 @@ var indexWarp = {
 					divTop = $('.content_li').eq(0).offset().top;
 				$leftSlide.empty();
 				$detailWrap.empty();
-				$("html,body").stop().animate({
-					scrollTop: divTop
-				}, 10);
+				if(flag == 0) {
+					$("html,body").stop().animate({
+						scrollTop: divTop
+					}, 10);
+				}
+
 				$.each(data.data, function(m, n) {
 					var leftContent = '<li><a href="javascript:;" tab="' + n.cate_id + '">' + n.cate_name + '</a></li>';
 					$leftSlide.append(leftContent);
@@ -323,7 +327,7 @@ var indexWarp = {
 				console.log(data.data);
 				var cartData = data.data.carts;
 				if(cate_id != undefined && cate_id != '' && cate_id != null) {
-					self.getGoodsListEvent(cate_id);
+					self.getGoodsListEvent(cate_id, 1);
 				} else {
 					self.getTodayRecommendData();
 				}
@@ -417,7 +421,7 @@ var indexWarp = {
 				console.log(data.data);
 				var cartData = data.data.carts;
 				if(cate_id != undefined && cate_id != '' && cate_id != null) {
-					self.getGoodsListEvent(cate_id);
+					self.getGoodsListEvent(cate_id, 0);
 				} else {
 					self.getTodayRecommendData();
 				}

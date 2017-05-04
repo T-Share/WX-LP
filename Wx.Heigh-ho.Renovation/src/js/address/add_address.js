@@ -42,7 +42,7 @@ var editAddressWarp = {
 			$this.prop('checked', true);
 			$sex.prev().removeClass('em_choose');
 			$this.prev().addClass('em_choose');
-		}).on('click', '.area', function() { // 跳转到地图页面，跳转的同时保存当前页面其他信息到session dataInfo
+		}).on('touchstart', '.area', function() { // 跳转到地图页面，跳转的同时保存当前页面其他信息到session dataInfo
 			var obj = {};
 			obj.name = $('.enter_name').val();
 			obj.phone = $('.contact_tel').val();

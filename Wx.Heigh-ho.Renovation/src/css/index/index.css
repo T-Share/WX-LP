@@ -1624,3 +1624,14 @@ b {
     vertical-align: middle;
     margin-right: 0.5rem;
 }
+
+
+.address_tel a:visited, .address_tel a:hover, .address_tel a:focus {
+    text-decoration: none;
+    color: #2a6496;
+}
+
+.phone a:visited, .phone a:hover, .phone a:focus {
+    text-decoration: none;
+    color: #2a6496;
+}

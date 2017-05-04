@@ -18,7 +18,7 @@
 </html>
 <script src="../lib/jquery/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="../lib/layui/lay/modules/layer.js"></script>
-<script type="text/javascript" src="../js/static/common.js"></script>
+
 <script>
 	var BASEURL = 'http://www.heeyhome.com/lpcs/home/';
 	var OPENIDURL = BASEURL + 'index/index'; // openid
@@ -73,24 +73,33 @@
 		}
 
 		var code = getUrlParam('code');
+		if(sessionStorage.getItem('openid') == null) {
+			$.ajax({
+				url: OPENIDURL,
+				type: "GET",
+				async: true,
+				data: {
+					code: code
+				},
+				dataType: 'jsonp',
+				success: function(data) {
+					if(data.code == '000') {
+						openid = data.data.openid;
+						sessionStorage.setItem('openid', data.data.openid);
+						middleWarp.init();
+					} else {
+						layer.msg(data.msg);
+					}
+				},
+				error: function(data) {}
+			});
+		} else {
 
-		$.ajax({
-			url: OPENIDURL,
-			type: "GET",
-			async: true,
-			data: {
-				code: code
-			},
-			dataType: 'jsonp',
-			success: function(data) {
-				if(data.code == '000') {
-					openid = data.data.openid;
-					middleWarp.init();
-				} else {
-					layer.msg(data.msg);
-				}
-			},
-			error: function(data) {}
-		});
+			openid = sessionStorage.getItem('openid');
+			if(openid != null) {
+				middleWarp.init();
+			}
+
+		}
 	});
 </script>

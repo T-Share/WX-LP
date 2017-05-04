@@ -68,7 +68,7 @@ var orderWarp = {
 			.on('click', '.order_pay a', function() {
 				self.confirmPayEvent();
 			})
-			.on('click', '.order_address', function() { // 选择送餐地址
+			.on('touchstart', '.order_address', function() { // 选择送餐地址
 				sessionStorage.setItem('addressId', $(this).attr("data-id"));
 				window.location.href = 'address.html';
 			});
@@ -107,6 +107,8 @@ var orderWarp = {
 					} else {
 						$('.address').html('请选择一个收货地址');
 						$('.address').css('margin-top', '4%');
+						$(".shop_name").addClass("display");
+						$(".fee").addClass("display");
 					}
 				}
 			});
@@ -118,6 +120,8 @@ var orderWarp = {
 	getGwcContentData: function(addressId) {
 		var $content = $('.shop_content ul'),
 			stitching = '';
+		$(".shop_name").removeClass("display");
+		$(".fee").removeClass("display");	
 		$.ajax({
 			url: orderWarp.FEEURL,
 			type: "GET",

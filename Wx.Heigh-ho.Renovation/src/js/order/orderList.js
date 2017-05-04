@@ -204,7 +204,7 @@ var orderListWarp = {
 	/**
 	 * 倒计时
 	 */
-	countdownEvent: function(orderDetailId, orderTime) {
+	countdownEvent: function(orderTime,orderDetailId ) {
 		var self = this;
 		var myDate = new Date();
 		var dateArr = orderTime.split(' ')[0].split('-');
@@ -225,11 +225,11 @@ var orderListWarp = {
 					minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
 					second = Math.floor(intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
 				} else {
-					self.cancelOrderEvent(cancelOrderid);
+					self.cancelOrderEvent(orderDetailId);
 				}
 				if(minute <= 9) minute = '0' + minute;
 				if(second <= 9) second = '0' + second;
-				$('.orderList[order_id=' + cancelOrderid + '] .orderList_right span i').html(minute + ':' + second);
+				$('.orderList[order_id=' + orderDetailId + '] .orderList_right span i').html(minute + ':' + second);
 				intDiff--;
 			}, 1000);
 		}
